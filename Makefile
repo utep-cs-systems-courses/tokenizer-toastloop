@@ -117,7 +117,7 @@ TARGET_DEPENDENCIES	:= $(patsubst $(TARGET_OBJ_DIR)%,$(TARGET_DEP_DIR)%, $(patsu
 
 TEST_SOURCES		:= $(wildcard $(TEST_SRC)/*.c) $(wildcard $(TEST_SRC)/*.cpp) $(wildcard $(TEST_SRC)/*.s)
 TEST_OBJECTS		:= $(patsubst $(TEST_SRC)%,$(TEST_OBJ_DIR)%, $(patsubst %.c,%.o, $(TEST_SOURCES)))
-TEST_TARGET_OBJECTS := $(patsubst $(TARGET_OBJ_DIR)/uimain.o,, $(TARGET_OBJECTS))
+TEST_TARGET_OBJECTS := $(patsubst $(TARGET_OBJ_DIR)/main.o,, $(TARGET_OBJECTS))
 TEST_DEPENDENCIES	:= $(patsubst $(TEST_OBJ_DIR)%,$(TEST_DEP_DIR)%, $(patsubst %.o,%.d, $(TEST_OBJECTS)))
 
 # Formatting
