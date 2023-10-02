@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int strcmp(char *a, char *b)
+int strcmp(const char *a, const char *b)
 {
     while(*a && * b)
     {
@@ -17,9 +17,9 @@ int strcmp(char *a, char *b)
     }
     return (*a) ? 1 : -1;
 }
-long long unsigned int strlen(const char *str)
+unsigned long strlen(const char *str)
 {
-    long long unsigned int len = 0;
+    unsigned long len = 0;
     while (str[len] != '\0') {
         len++;
     }

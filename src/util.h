@@ -5,12 +5,12 @@
 It returns an integer value that indicates the relationship between the two strings. 
 The return value is 0 if the strings are equal, a negative value if `a` is less than `b`, 
 and a positive value if `a` is greater than `b`. */
-int strcmp(char *a, char *b);
+int strcmp(const char *a, const char *b);
 
 /* The `strlen` function is used to calculate the length of a string. It takes a pointer 
 to a constant character array (`const char *str`) as its argument and returns the length 
 of the string as a `long long unsigned int` value. */
-long long unsigned int strlen(const char *str);
+unsigned long strlen(const char *str);
 
 /* The `strcopy` function is used to copy a string `str` to a new string of length `len`.
 It takes two arguments - a pointer to the original string `str` and the length of the 
