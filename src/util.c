@@ -40,11 +40,11 @@ unsigned long strlen(const char *str)
 
 char* strcopy(char *str, short len)
 {
-    char *out = malloc(len + 1);
+    char *out = malloc((len + 1) * sizeof(char));
     for(int i = 0; i < len; i++){
-        out[i] = str[i];
+        * (out + i) = * (str + i);
     }
-    out[len] = '\0';
+    * (out + len) = '\0';
     return out;
 }
 int zerochar(char c)
@@ -72,4 +72,14 @@ int chartoint(char *str)
 int charcmp(char a, char b)
 {
     return a - b;
+}
+int arraylen(char **arr)
+{
+    int len = 0;
+    while (!zerochar(**arr))
+    {
+        len++;
+        arr++;
+    }
+    return len;
 }

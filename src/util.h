@@ -49,4 +49,9 @@ characters are equal, a negative value if `a` is less than `b`, and a positive v
 greater than `b`. */
 int charcmp(char a, char b);
 
+/* The `int arraylen(char **arr);` function is used to calculate the length of an array of strings. 
+It takes a pointer to a pointer to a character array (`char **arr`) as its argument and returns the 
+length of the array as an integer value. */
+int arraylen(char **arr);
+
 #endif
