@@ -32,8 +32,7 @@ int count_tokens(char *str)
 }
 char **tokenize(char *str)
 {
-    int numTokens = count_tokens(str);
-    char **tokens = malloc(sizeof(char *) * (numTokens + 1));
+    char **tokens = malloc(sizeof(char *) * (count_tokens(str) + 1));
     char *token = token_start(str);
     int i = 0;
     while (!zerochar(*token))
@@ -48,19 +47,17 @@ char **tokenize(char *str)
 }
 void print_tokens(char **tokens)
 {
-    int i = 0;
-    while (!zerochar(**tokens) &&  i < count_tokens(*tokens) + 1)
+    while (!zerochar(**tokens))
     {
-        printf("%s\n", *tokens++);
-        i++;
+        printf("%s\n", *tokens);
+        tokens++;
     }
 }
 void free_tokens(char **tokens)
 {
-    int i = 0;
-    while (!zerochar(**tokens) &&  i < count_tokens(*tokens) + 1)
+    while (!zerochar(**tokens))
     {
-        free(*tokens++);
-        i++;
+        free(*tokens);
+        tokens++;
     }
 }
