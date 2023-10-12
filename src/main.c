@@ -29,11 +29,11 @@ int main(int argc, char **argv)
             char *str = get_history(history, chartoint(line + 1));
             if(str != 0)
             {
-                printf("%s\n", str);
+                printf("%i: %s\n", chartoint(line + 1), str);
             }
             else
             {
-                printf("No command found\n");
+                printf("History does not contain an entry for %i\n", chartoint(line + 1));
             }
         }
         else if(strcmp(line, "history") == 0)
