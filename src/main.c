@@ -16,8 +16,6 @@ int main(int argc, char **argv)
     {
         fputs(">>> ", stdout);
         fgets(line, 1000, stdin);
-        fseek(stdin,0,SEEK_END);
-        fseek(stdout,0,SEEK_END);
         if(strcmp(line, "\n") == 0)
         {
             break;
