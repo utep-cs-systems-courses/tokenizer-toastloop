@@ -17,6 +17,17 @@ int strcmp(const char *a, const char *b)
     }
     return (*a) ? 1 : -1;
 }
+
+#ifdef _WIN32
+long long unsigned int strlen(const char *str)
+{
+    long long unsigned int len = 0;
+    while (str[len] != '\0') {
+        len++;
+    }
+    return len;
+}
+#else
 unsigned long strlen(const char *str)
 {
     unsigned long len = 0;
@@ -25,6 +36,8 @@ unsigned long strlen(const char *str)
     }
     return len;
 }
+#endif
+
 char* strcopy(char *str, short len)
 {
     char *out = malloc(len + 1);

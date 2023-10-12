@@ -7,15 +7,27 @@ The return value is 0 if the strings are equal, a negative value if `a` is less 
 and a positive value if `a` is greater than `b`. */
 int strcmp(const char *a, const char *b);
 
-/* The `strlen` function is used to calculate the length of a string. It takes a pointer 
-to a constant character array (`const char *str`) as its argument and returns the length 
-of the string as a `long long unsigned int` value. */
-unsigned long strlen(const char *str);
-
 /* The `strcopy` function is used to copy a string `str` to a new string of length `len`.
 It takes two arguments - a pointer to the original string `str` and the length of the 
 new string `len`. The function returns a pointer to the new string. */
 char* strcopy(char *str, short len);
+
+#ifdef _WIN32
+/* The `strlen` function is used to calculate the length of a string. It takes a pointer 
+to a constant character array (`const char *str`) as its argument and returns the length 
+of the string as a `long long unsigned int` value. */
+long long unsigned int strlen(const char *);
+#else
+/* The `strlen` function is used to calculate the length of a string. It takes a pointer 
+to a constant character array (`const char *str`) as its argument and returns the length 
+of the string as a `long unsigned int` value. */
+unsigned long strlen(const char *str);
+#endif
+
+/* The `int zerochar(char c);` function is used to check if a character `c` is a zero 
+character. It returns an integer value - 1 if the character is a zero character, 
+and 0 if it is not. */
+int zerochar(char c);
 
 /* The `spacechar(char c);` function is used to check if a character `c` is a space 
 character. It returns an integer value - 1 if the character is a space, and 0 if it is not. */
