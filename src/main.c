@@ -20,9 +20,9 @@ int main(int argc, char **argv)
         {
             break;
         }
-        if(line[strlen(line) - 1] == '\n')
+        if(* (line + strlen(line) - 1) == '\n')
         {
-            line[strlen(line) - 1] = '\0';
+            * (line + strlen(line) - 1) = '\0';
         }
         if(*line == '!')
         {
