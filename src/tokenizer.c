@@ -22,7 +22,7 @@ int count_tokens(char *str)
 {
     int count = 0;
     char *token = token_start(str);
-    while (*token != '\0')
+    while (!zerochar(*token))
     {
         count++;
         token = token_terminator(token);
@@ -36,33 +36,31 @@ char **tokenize(char *str)
     char **tokens = malloc(sizeof(char *) * (numTokens + 1));
     char *token = token_start(str);
     int i = 0;
-    while (*token != 0)
+    while (!zerochar(*token))
     {
         char *term = token_terminator(token);
-        int len = term - token;
-        tokens[i] = strcopy(token, len);
+        *(tokens + i) = strcopy(token, term - token);
         token = token_start(term);
         i++;
     }
-    tokens[i] = 0;
+    *(tokens + i) = strcopy("\0", 1);
     return tokens;
 }
 void print_tokens(char **tokens)
 {
     int i = 0;
-    while (tokens[i] != 0)
+    while (!zerochar(**tokens) &&  i < count_tokens(*tokens) + 1)
     {
-        printf("%s\n", tokens[i]);
+        printf("%s\n", *tokens++);
         i++;
     }
 }
 void free_tokens(char **tokens)
 {
     int i = 0;
-    while (tokens[i] != 0)
+    while (!zerochar(**tokens) &&  i < count_tokens(*tokens) + 1)
     {
-        free(tokens[i]);
+        free(*tokens++);
         i++;
     }
-    free(tokens);
 }
